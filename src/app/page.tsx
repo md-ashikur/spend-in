@@ -1,11 +1,11 @@
 'use client';
-
+import { theme } from "antd";
 const Home = () => {
-
+  const { token } = theme.useToken();
 
   return (
    <div>
-    jhhj
+     <h1 style={{ color: token.primary500 }}>Hello AntD + Tailwind Colors</h1>
    </div>
   );
 };
