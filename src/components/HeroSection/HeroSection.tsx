@@ -1,5 +1,6 @@
 import { Button, Flex, theme } from "antd";
-import React from "react";
+import Image from "next/image";
+import dashboard from "../../../public/images/Dashboard.png"
 
 export default function HeroSection() {
   const { token } = theme.useToken();
@@ -7,9 +8,10 @@ export default function HeroSection() {
   return (
     <div
       style={{
-        
+        maxHeight: "660px",
         padding: "120px 40px",
         textAlign: "center",
+        overflow: "hidden",
       }}
     >
       <h1 style={{ fontSize: "72px", margin: 0 }}>
@@ -35,6 +37,8 @@ export default function HeroSection() {
           See Pricing
         </Button>
       </Flex>
+
+      <Image src={dashboard} alt="Hero Image" style={{marginTop: "80px"}}/>
     </div>
   );
 }

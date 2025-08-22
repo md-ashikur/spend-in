@@ -48,9 +48,9 @@ const theme: ThemeConfig = {
 
       // === Submenu (dropdown) ===
       subMenuItemBg: "#1A202C", // submenu background
-      subMenuItemColor: "#df0e0eff", // submenu item text
-      subMenuItemHoverColor: "#3f00e0ff", // hover
-      subMenuItemSelectedColor: "#7C5CFC", // selected text
+      subMenuItemColor: "#90A3BF", // submenu item text (using secondary300 for better readability)
+      subMenuItemHoverColor: "#7C5CFC", // hover (using primary500)
+      subMenuItemSelectedColor: "#B49DFE", // selected text (using primary300)
       subMenuItemSelectedBg: "#1A202C", // clean background
     },
 
