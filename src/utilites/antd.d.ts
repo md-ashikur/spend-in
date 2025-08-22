@@ -24,5 +24,10 @@ declare module "antd/es/theme/interface" {
     secondary700?: string;
     secondary800?: string;
     secondary900?: string;
+
+
+    subMenuItemColor: string; // submenu item text color
+    subMenuItemHoverColor: string; // submenu item hover text color
+    subMenuItemSelectedBg: string; // submenu item selected background
   }
 }

@@ -1,76 +1,108 @@
-'use client';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
-import { Header } from 'antd/es/layout/layout';
+"use client";
 
-
-type MenuItem = Required<MenuProps>['items'][number];
+import type { MenuProps } from "antd";
+import { Menu, Button } from "antd";
+import { Header } from "antd/es/layout/layout";
+import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
+import { theme } from "antd";
+type MenuItem = Required<MenuProps>["items"][number];
 
 const items: MenuItem[] = [
   {
-    key: 'sub1',
-    icon: <MailOutlined />,
-    label: 'Navigation One',
+    key: "products",
+    label: "Products",
     children: [
       {
-        key: '1-1',
-        label: 'Item 1',
-      
+        key: "/products/item1",
+        label: <Link href="/products/item1">Item 1</Link>,
       },
       {
-        key: '1-2',
-        label: 'Item 2',
-        
+        key: "/products/item2",
+        label: <Link href="/products/item2">Item 2</Link>,
       },
     ],
   },
   {
-    key: 'sub2',
-    icon: <AppstoreOutlined />,
-    label: 'Navigation Two',
+    key: "/benefit",
+    label: <Link href="/benefit">Benefit</Link>,
   },
   {
-    key: 'sub5',
-    icon: <MailOutlined />,
-    label: 'Navigation One',
+    key: "/how-it-works",
+    label: <Link href="/how-it-works">How it Works</Link>,
+  },
+  {
+    key: "pricing",
+    label: <Link href="/pricing">Pricing</Link>,
+  },
+  {
+    key: "company",
+    label: "Company",
     children: [
       {
-        key: '1-1',
-        label: 'Item 1',
-      
+        key: "/company/item1",
+        label: <Link href="/company/item1">Item 1</Link>,
       },
       {
-        key: '1-2',
-        label: 'Item 2',
-        
+        key: "/company/item2",
+        label: <Link href="/company/item2">Item 2</Link>,
       },
     ],
   },
 ];
+
 const Navbar = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const { token } = theme.useToken();
+  const onClick: MenuProps["onClick"] = (e) => {
+    router.push(e.key);
+  };
 
-const onClick: MenuProps['onClick'] = (e) => {
-  console.log('click', e);
-};
   return (
+    <Header
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 1,
+        width: "full",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        backgroundColor: "transparent",
+      }}
+    >
+      {/* Left: Logo */}
+      <div style={{ fontWeight: "bold", fontSize: 20}}>
+        <Link href="/" style={{ color: "#fff" }}>
+          Spend.In
+        </Link>
+      </div>
 
-      <Header
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 1,
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '0',
-        }}
-      >
-        
-        <Menu onClick={onClick} style={{ width: '100%' }} mode="horizontal" items={items} />
-      </Header>
-     
-    
+      {/* Center: Menu */}
+      <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+        <Menu
+          onClick={onClick}
+          mode="horizontal"
+          items={items}
+          selectedKeys={[pathname]}
+          style={{
+            backgroundColor: "transparent",
+          }}
+         
+        />
+      </div>
+
+      {/* Right: Login + Button */}
+      <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+        <Link href="/login" style={{ color: "#fff" }}>
+          Login
+        </Link>
+        <Button type="primary" onClick={() => router.push("/demo")}>
+          Get Demo
+        </Button>
+      </div>
+    </Header>
   );
 };
 

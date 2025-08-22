@@ -4,6 +4,9 @@ import "./globals.css";
 import ConfigProvider from "antd/es/config-provider";
 import theme from "../utilites/themeConfig";
 import Navbar from "../components/Navbar/Navbar";
+import { Layout } from "antd";
+import { Content } from "antd/es/layout/layout";
+import Footer from "@/components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +31,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        
         <ConfigProvider theme={theme}>
-          <Navbar />
-          {children}
+          <div style={{ background: "#0D121F" }}>
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
         </ConfigProvider>
       </body>
     </html>
