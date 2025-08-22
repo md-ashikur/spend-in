@@ -1,12 +1,14 @@
 'use client';
+import Benefits from "@/components/benefits/Benefits";
 import HeroSection from "@/components/HeroSection/HeroSection";
-import { theme } from "antd";
+
 const Home = () => {
-  const { token } = theme.useToken();
+ 
 
   return (
-   <div>
+   <div >
    <HeroSection />
+   <Benefits/>
    </div>
   );
 };

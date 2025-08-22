@@ -1,0 +1,25 @@
+{
+  "title": "WHY USE SPEND.IN",
+  "heading": "Easy, Simple, Affordable",
+  "description": "Our platform helps your business in managing expenses. These are some of the reasons why you should use our platform in managing business finances.",
+  "cards": [
+    {
+      "id": 1,
+      "image": "/images/Frame 33664.png",
+      "title": "Automatic Invoice Payment",
+      "description": "No need to pay manually, we provide automatic invoice payment service! Set a payment schedule and you're done, it's that easy!"
+    },
+    {
+      "id": 2,
+      "image": "/images/Frame 33664 (1).png",
+      "title": "Clear payment history",
+      "description": "Still writing manual expenses? Our platform breaks down every expense you log down to the millisecond!"
+    },
+    {
+      "id": 3,
+      "image": "/images/Frame 33664 (2).png",
+      "title": "Use of multi-card payments",
+      "description": "Have more than 1 bank account or credit/debit card? Our platform is already integrated with many banks around the world, for easier payments!"
+    }
+  ]
+}

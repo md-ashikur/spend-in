@@ -27,4 +27,5 @@ body {
 /* Apply Plus Jakarta Sans font globally */
 * {
   font-family: 'Plus Jakarta Sans';
+  line-height: 150%;
 }

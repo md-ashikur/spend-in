@@ -38,7 +38,7 @@ export default function HeroSection() {
         </Button>
       </Flex>
 
-      <Image src={dashboard} alt="Hero Image" style={{marginTop: "80px"}}/>
+      <Image src={dashboard} alt="Hero Image" style={{marginTop: "80px", maxWidth: "100%", height: "auto"}}/>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { Header } from "antd/es/layout/layout";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { theme } from "antd";
+import { useEffect, useState } from "react";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -56,6 +57,22 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { token } = theme.useToken();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const onClick: MenuProps["onClick"] = (e) => {
     router.push(e.key);
   };
@@ -70,7 +87,11 @@ const Navbar = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor: "transparent",
+        backgroundColor: isScrolled ? `${token.secondary700}CC` : "transparent", // CC adds 80% opacity
+        backdropFilter: isScrolled ? "blur(8px)" : "none",
+        WebkitBackdropFilter: isScrolled ? "blur(8px)" : "none", // for Safari support
+        boxShadow: isScrolled ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "none",
+        transition: "all 0.3s ease",
       }}
     >
       {/* Left: Logo */}
