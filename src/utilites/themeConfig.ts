@@ -1,8 +1,8 @@
-import type { ThemeConfig } from 'antd';
+import type { ThemeConfig } from "antd";
 
 const theme: ThemeConfig = {
   token: {
- // === overwrite AntD defaults ===
+    // === overwrite AntD defaults ===
     colorPrimary: "#7C5CFC", // primary-500
     colorInfo: "#3b82f6",
     colorSuccess: "#22c55e",
@@ -35,7 +35,6 @@ const theme: ThemeConfig = {
 
     borderRadius: 8,
     fontSize: 16,
-
   },
 
   components: {
@@ -47,14 +46,12 @@ const theme: ThemeConfig = {
       itemSelectedBg: "#1A202C", // no background, just text color
       horizontalItemSelectedColor: "#fc5c5cff", // selected color in horizontal menu
 
-        // === Submenu (dropdown) ===
+      // === Submenu (dropdown) ===
       subMenuItemBg: "#1A202C", // submenu background
       subMenuItemColor: "#df0e0eff", // submenu item text
       subMenuItemHoverColor: "#3f00e0ff", // hover
       subMenuItemSelectedColor: "#7C5CFC", // selected text
       subMenuItemSelectedBg: "#1A202C", // clean background
-
-     
     },
 
     // === Card ===
@@ -71,8 +68,9 @@ const theme: ThemeConfig = {
       colorPrimary: "#7C5CFC", // your primary button
       colorPrimaryHover: "#5E43D8", // hover
       colorPrimaryActive: "#432EB5", // active
-      borderRadius: 8,
-      controlHeight: 44, // button height
+      borderRadius: 50,
+      controlHeight: 44,
+      paddingInline: 24,
       fontWeight: 600,
     },
   },

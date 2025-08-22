@@ -1,4 +1,4 @@
-import { theme } from "antd";
+import { Button, Flex, theme } from "antd";
 import React from "react";
 
 export default function HeroSection() {
@@ -7,9 +7,9 @@ export default function HeroSection() {
   return (
     <div
       style={{
-        height: "90vh",
-        padding: "40px",
-        textAlign: "center",       
+        
+        padding: "120px 40px",
+        textAlign: "center",
       }}
     >
       <h1 style={{ fontSize: "72px", margin: 0 }}>
@@ -17,10 +17,24 @@ export default function HeroSection() {
         expenses in one place.
       </h1>
 
-      <h4>
-        Your one-stop finance empower platform. Manage all your business
-        expenses with our supafast app.
-      </h4>
+      <p style={{ color: token.secondary300, fontSize: "24px" }}>
+        Your one-stop finance empower platform.
+        <br /> Manage all your business expenses with our supafast app.
+      </p>
+
+
+      <Flex gap="middle" justify="center">
+        <Button type="primary">Get a Free Demo</Button>
+        <Button
+          style={{
+            backgroundColor: token.secondary500,
+            border: "none",
+            color: "#fff",
+          }}
+        >
+          See Pricing
+        </Button>
+      </Flex>
     </div>
   );
 }
