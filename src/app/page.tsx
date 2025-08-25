@@ -2,6 +2,7 @@
 import Benefit2 from "@/components/benefits/Benefit2";
 import Benefits from "@/components/benefits/Benefits";
 import HeroSection from "@/components/HeroSection/HeroSection";
+import HowItWork from "@/components/how-It-Work/HowItWork";
 
 const Home = () => {
  
@@ -11,6 +12,7 @@ const Home = () => {
    <HeroSection />
    <Benefits/>
    <Benefit2/>
+   <HowItWork/>
    </div>
   );
 };

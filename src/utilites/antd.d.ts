@@ -25,6 +25,7 @@ declare module "antd/es/theme/interface" {
     secondary800?: string;
     secondary900?: string;
 
+    white?: string;
 
     subMenuItemColor: string; // submenu item text color
     subMenuItemHoverColor: string; // submenu item hover text color

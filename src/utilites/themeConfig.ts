@@ -33,8 +33,13 @@ const theme: ThemeConfig = {
     secondary800: "#080C19",
     secondary900: "#040815",
 
+    white: "#ffffff",
     borderRadius: 8,
     fontSize: 16,
+  // Typography colors
+  colorTextHeading: "#040815",
+  colorText: "#1A202C",
+  colorTextSecondary: "#596780",
   },
 
   components: {
@@ -73,6 +78,9 @@ const theme: ThemeConfig = {
       paddingInline: 24,
       fontWeight: 600,
     },
+  Typography:{
+    titleMarginTop: 0,
+  }
   },
 };
 
