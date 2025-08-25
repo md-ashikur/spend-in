@@ -61,7 +61,7 @@ const theme: ThemeConfig = {
 
     // === Card ===
     Card: {
-      colorBgContainer: "#1A202C", // dark card background
+      colorBgContainer: "transparent", // dark card background
       colorBorderSecondary: "#2D1D92", // subtle border
       headerFontSize: 18,
       headerHeight: 56,
@@ -80,8 +80,9 @@ const theme: ThemeConfig = {
     },
   Typography:{
     titleMarginTop: 0,
-  }
   },
+  
+},
 };
 
 export default theme;
