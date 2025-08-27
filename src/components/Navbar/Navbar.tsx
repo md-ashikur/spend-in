@@ -1,7 +1,8 @@
 "use client";
 
 import type { MenuProps } from "antd";
-import { Menu, Button } from "antd";
+import { Menu, Button, Drawer, Grid } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
 import { Header } from "antd/es/layout/layout";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -58,6 +59,9 @@ const Navbar = () => {
   const pathname = usePathname();
   const { token } = theme.useToken();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [drawerVisible, setDrawerVisible] = useState(false);
+  const { useBreakpoint } = Grid;
+  const screens = useBreakpoint();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,56 +79,174 @@ const Navbar = () => {
 
   const onClick: MenuProps["onClick"] = (e) => {
     router.push(e.key);
+    setDrawerVisible(false); // Close drawer when menu item is clicked
+  };
+
+  const showDrawer = () => {
+    setDrawerVisible(true);
+  };
+
+  const onDrawerClose = () => {
+    setDrawerVisible(false);
   };
 
   return (
-    <Header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 1,
-        width: "full",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        backgroundColor: isScrolled ? `${token.secondary700}CC` : "transparent", // CC adds 80% opacity
-        backdropFilter: isScrolled ? "blur(8px)" : "none",
-        WebkitBackdropFilter: isScrolled ? "blur(8px)" : "none", // for Safari support
-        boxShadow: isScrolled ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "none",
-        transition: "all 0.3s ease",
-      }}
-    >
-      {/* Left: Logo */}
-      <div style={{ fontWeight: "bold", fontSize: 20}}>
-        <Link href="/" style={{ color: "#fff" }}>
-          Spend.In
-        </Link>
-      </div>
+    <div style={{
+      width: "100%",
+      maxWidth: "100vw",
+      overflow: "hidden",
+      position: "relative"
+    }}>
+      <Header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          width: "100%",
+          maxWidth: "100vw",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          backgroundColor: isScrolled ? `${token.secondary700}CC` : "transparent",
+          backdropFilter: isScrolled ? "blur(8px)" : "none",
+          WebkitBackdropFilter: isScrolled ? "blur(8px)" : "none",
+          boxShadow: isScrolled ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "none",
+          transition: "all 0.3s ease",
+          padding: "0 clamp(10px, 3vw, 20px)",
+          margin: 0,
+          overflow: "hidden",
+          boxSizing: "border-box"
+        }}
+      >
+        {/* Left: Logo */}
+        <div style={{ fontWeight: "bold", fontSize: "clamp(16px, 3vw, 20px)" }}>
+          <Link href="/" style={{ color: "#fff" }}>
+            Spend.In
+          </Link>
+        </div>
 
-      {/* Center: Menu */}
-      <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+        {/* Desktop Menu - Hidden on mobile/tablet */}
+        {screens.lg && (
+          <div style={{ 
+            flex: 1, 
+            display: "flex",
+            justifyContent: "center"
+          }}>
+            <Menu
+              onClick={onClick}
+              mode="horizontal"
+              items={items}
+              selectedKeys={[pathname]}
+              style={{
+                backgroundColor: "transparent",
+                border: "none"
+              }}
+            />
+          </div>
+        )}
+
+        {/* Desktop Right - Login + Button */}
+        {screens.lg && (
+          <div style={{ 
+            display: "flex", 
+            gap: 16, 
+            alignItems: "center"
+          }}>
+            <Link href="/login" style={{ color: "#fff" }}>
+              Login
+            </Link>
+            <Button 
+              type="primary" 
+              onClick={() => router.push("/demo")}
+            >
+              Get Demo
+            </Button>
+          </div>
+        )}
+
+        {/* Mobile - Burger Menu Button */}
+        {!screens.lg && (
+          <Button
+            type="text"
+            icon={<MenuOutlined style={{ color: "#fff", fontSize: "18px" }} />}
+            onClick={showDrawer}
+            style={{
+              border: "none",
+              background: "transparent",
+              boxShadow: "none"
+            }}
+          />
+        )}
+      </Header>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        title={
+          <div style={{ color: token.primary500, fontWeight: "bold" }}>
+            Spend.In
+          </div>
+        }
+        placement="right"
+        onClose={onDrawerClose}
+        open={drawerVisible}
+        width={280}
+        styles={{
+          body: { 
+            padding: 0,
+            backgroundColor: token.secondary700 
+          },
+          header: {
+            backgroundColor: token.secondary700,
+            borderBottom: `1px solid ${token.secondary600}`
+          }
+        }}
+      >
         <Menu
           onClick={onClick}
-          mode="horizontal"
+          mode="vertical"
           items={items}
           selectedKeys={[pathname]}
           style={{
             backgroundColor: "transparent",
+            border: "none"
           }}
-         
+          theme="dark"
         />
-      </div>
-
-      {/* Right: Login + Button */}
-      <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-        <Link href="/login" style={{ color: "#fff" }}>
-          Login
-        </Link>
-        <Button type="primary" onClick={() => router.push("/demo")}>
-          Get Demo
-        </Button>
-      </div>
-    </Header>
+        
+        {/* Mobile Login and Demo buttons */}
+        <div style={{ 
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px"
+        }}>
+          <Button 
+            type="text" 
+            onClick={() => {
+              router.push("/login");
+              setDrawerVisible(false);
+            }}
+            style={{ 
+              color: "#fff",
+              textAlign: "left",
+              justifyContent: "flex-start"
+            }}
+          >
+            Login
+          </Button>
+          <Button 
+            type="primary" 
+            onClick={() => {
+              router.push("/demo");
+              setDrawerVisible(false);
+            }}
+            block
+          >
+            Get Demo
+          </Button>
+        </div>
+      </Drawer>
+    </div>
   );
 };
 

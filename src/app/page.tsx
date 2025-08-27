@@ -4,6 +4,7 @@ import Benefits from "@/components/benefits/Benefits";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import HowItWork from "@/components/how-It-Work/HowItWork";
 import HowItWork2 from "@/components/how-It-Work/HowItWork2";
+import Testimonials from "@/components/Testimonials/Testimonials";
 
 const Home = () => {
  
@@ -15,6 +16,7 @@ const Home = () => {
    <Benefit2/>
    <HowItWork/>
    <HowItWork2/>
+   <Testimonials/>
    </div>
   );
 };

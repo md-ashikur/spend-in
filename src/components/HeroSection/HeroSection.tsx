@@ -9,25 +9,35 @@ export default function HeroSection() {
     <div
       style={{
         maxHeight: "660px",
-        padding: "120px 40px",
+        padding: "120px 20px",
         textAlign: "center",
         overflow: "hidden",
       }}
     >
-      <h1 style={{ fontSize: "72px", margin: 0 }}>
+      <h1 style={{ 
+        fontSize: "clamp(32px, 8vw, 72px)", 
+        margin: 0,
+        lineHeight: 1.2 
+      }}>
         All your business <br />
         expenses in one place.
       </h1>
 
-      <p style={{ color: token.secondary300, fontSize: "24px" }}>
+      <p style={{ 
+        color: token.secondary300, 
+        fontSize: "clamp(16px, 3vw, 24px)",
+        maxWidth: "600px",
+        margin: "0 auto"
+      }}>
         Your one-stop finance empower platform.
         <br /> Manage all your business expenses with our supafast app.
       </p>
 
 
-      <Flex gap="middle" justify="center">
-        <Button type="primary">Get a Free Demo</Button>
+      <Flex gap="middle" justify="center" wrap="wrap" style={{ margin: "32px 0" }}>
+        <Button type="primary" size="large">Get a Free Demo</Button>
         <Button
+          size="large"
           style={{
             backgroundColor: token.secondary500,
             border: "none",
@@ -38,7 +48,16 @@ export default function HeroSection() {
         </Button>
       </Flex>
 
-      <Image src={dashboard} alt="Hero Image" style={{marginTop: "80px", maxWidth: "100%", height: "auto"}}/>
+      <Image 
+        src={dashboard} 
+        alt="Hero Image" 
+        style={{
+          marginTop: "80px", 
+          maxWidth: "100%", 
+          height: "auto",
+          maxHeight: "400px"
+        }}
+      />
     </div>
   );
 }

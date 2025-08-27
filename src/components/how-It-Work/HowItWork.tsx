@@ -10,23 +10,31 @@ export default function HowItWork() {
   const { token } = theme.useToken();
 
   return (
-    <div style={{ padding: "120px" }}>
+    <div style={{ padding: "120px 20px" }}>
       <Flex vertical align="center" style={{ textAlign: "center" }}>
         <Title level={5} style={{ color: token.primary500 }}>
           HOW IT WORKS
         </Title>
-        <Title level={2} style={{ color: token.white }}>
+        <Title level={2} style={{ 
+          color: token.white,
+          fontSize: "clamp(24px, 5vw, 40px)"
+        }}>
           Few Easy Steps and Done
         </Title>
-        <Paragraph style={{ color: token.secondary300, fontSize: 20 }}>
+        <Paragraph style={{ 
+          color: token.secondary300, 
+          fontSize: "clamp(16px, 2.5vw, 20px)",
+          maxWidth: "600px",
+          margin: "0 auto"
+        }}>
           In just few easy step, you are all set to manage your business
           finances.
           <br /> Manage all expenses with Spend.In all in one place.
         </Paragraph>
       </Flex>
 
-      <Flex justify="center">
-        <Row gutter={80}>
+      <Flex justify="center" style={{ marginTop: "64px" }}>
+        <Row gutter={[32, 32]} justify="center">
           {/* Step 1 - Register */}
           <Col xs={24} sm={12} lg={8}>
             <div style={{ position: "relative", textAlign: "center" }}>

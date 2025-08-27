@@ -1,4 +1,4 @@
-import { Col, Flex, Row, Space, theme } from "antd";
+import { Col, Flex, Row, Space, theme, Grid } from "antd";
 import Image from "next/image";
 import icon1 from "../../../public/images/empty-wallet-time.png";
 import icon2 from "../../../public/images/document-text.png";
@@ -9,11 +9,18 @@ import { Typography } from "antd";
 export default function Benefit2() {
   const { token } = theme.useToken();
 
+  const { useBreakpoint } = Grid;
+  const screens = useBreakpoint();
+
   const { Title, Paragraph } = Typography;
+  // responsive paddings: mobile inline 80px, desktop 120px
+  const paddingInline = screens.lg ? "120px" : screens.md ? "32px" : screens.sm ? "24px" : "20px";
+  const paddingTop = screens.lg ? "120px" : screens.md ? "100px" : "80px";
+
   return (
-    <div style={{ padding: "120px 80px", backgroundColor: "#ffffff" }}>
+    <div style={{ padding: `${paddingTop} ${paddingInline}`, backgroundColor: "#ffffff" }}>
       <Flex justify="center" align="center">
-        <div style={{ textAlign: "center", maxWidth: "712px" }}>
+  <div style={{ textAlign: "center", maxWidth: screens.xs ? "100%" : "712px", paddingInline: screens.xs ? "8px" : 0 }}>
           <Title
             level={5}
             style={{ color: token.primary500, fontSize: "20px", margin: 0 }}
@@ -22,7 +29,11 @@ export default function Benefit2() {
           </Title>
           <Title
             level={2}
-            style={{ color: token.secondary900, fontSize: "40px", margin: 0 }}
+            style={{ 
+              color: token.secondary900, 
+              fontSize: "clamp(24px, 5vw, 40px)", 
+              margin: 0 
+            }}
           >
             Easy, Simple, Affordable
           </Title>
@@ -34,12 +45,12 @@ export default function Benefit2() {
         </div>
       </Flex>
 
-      <Row style={{ marginTop: "64px", alignItems: "center" }} gutter={32}>
-        <Col span={12}>
+      <Row style={{ marginTop: "64px", alignItems: "center" }} gutter={[32, 32]}>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
           <Space
             direction="vertical"
             size="middle"
-            style={{ display: "flex", paddingRight: "40px" }}
+            style={{ display: "flex", paddingRight: screens.xs ? "0" : "40px" }}
           >
             <Flex>
               <Flex
@@ -135,7 +146,7 @@ export default function Benefit2() {
             </Flex>
           </Space>
         </Col>
-        <Col span={12}>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
           <Image
             src={content}
             alt="Benefit 1"
