@@ -15,7 +15,7 @@ export default function Benefit2() {
   const { Title, Paragraph } = Typography;
   // responsive paddings: mobile inline 80px, desktop 120px
   const paddingInline = screens.lg ? "120px" : screens.md ? "32px" : screens.sm ? "24px" : "20px";
-  const paddingTop = screens.lg ? "120px" : screens.md ? "100px" : "80px";
+  const paddingTop = screens.lg ? "80px" : screens.md ? "80px" : "80px";
 
   return (
     <div style={{ padding: `${paddingTop} ${paddingInline}`, backgroundColor: "#ffffff" }}>

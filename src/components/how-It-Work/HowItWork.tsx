@@ -28,8 +28,7 @@ export default function HowItWork() {
           margin: "0 auto"
         }}>
           In just few easy step, you are all set to manage your business
-          finances.
-          <br /> Manage all expenses with Spend.In all in one place.
+          finances. Manage all expenses with Spend.In all in one place.
         </Paragraph>
       </Flex>
 

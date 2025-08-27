@@ -70,7 +70,7 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    
+
     // Cleanup the event listener
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -91,23 +91,26 @@ const Navbar = () => {
   };
 
   return (
-    <div style={{
-      width: "100%",
-      maxWidth: "100vw",
-      overflow: "hidden",
-      position: "relative"
-    }}>
+    <div
+      style={{
+        width: "100%",
+        maxWidth: "100vw",
+        overflow: "hidden",
+        position: "sticky",
+        top: 0,
+        zIndex: 1000,
+      }}
+    >
       <Header
         style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 1000,
           width: "100%",
           maxWidth: "100vw",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          backgroundColor: isScrolled ? `${token.secondary700}CC` : "transparent",
+          backgroundColor: isScrolled
+            ? `${token.secondary700}CC`
+            : "transparent",
           backdropFilter: isScrolled ? "blur(8px)" : "none",
           WebkitBackdropFilter: isScrolled ? "blur(8px)" : "none",
           boxShadow: isScrolled ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "none",
@@ -115,7 +118,7 @@ const Navbar = () => {
           padding: "0 clamp(10px, 3vw, 20px)",
           margin: 0,
           overflow: "hidden",
-          boxSizing: "border-box"
+          boxSizing: "border-box",
         }}
       >
         {/* Left: Logo */}
@@ -127,11 +130,13 @@ const Navbar = () => {
 
         {/* Desktop Menu - Hidden on mobile/tablet */}
         {screens.lg && (
-          <div style={{ 
-            flex: 1, 
-            display: "flex",
-            justifyContent: "center"
-          }}>
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <Menu
               onClick={onClick}
               mode="horizontal"
@@ -139,7 +144,7 @@ const Navbar = () => {
               selectedKeys={[pathname]}
               style={{
                 backgroundColor: "transparent",
-                border: "none"
+                border: "none",
               }}
             />
           </div>
@@ -147,18 +152,17 @@ const Navbar = () => {
 
         {/* Desktop Right - Login + Button */}
         {screens.lg && (
-          <div style={{ 
-            display: "flex", 
-            gap: 16, 
-            alignItems: "center"
-          }}>
+          <div
+            style={{
+              display: "flex",
+              gap: 16,
+              alignItems: "center",
+            }}
+          >
             <Link href="/login" style={{ color: "#fff" }}>
               Login
             </Link>
-            <Button 
-              type="primary" 
-              onClick={() => router.push("/demo")}
-            >
+            <Button type="primary" onClick={() => router.push("/demo")}>
               Get Demo
             </Button>
           </div>
@@ -173,7 +177,7 @@ const Navbar = () => {
             style={{
               border: "none",
               background: "transparent",
-              boxShadow: "none"
+              boxShadow: "none",
             }}
           />
         )}
@@ -191,14 +195,14 @@ const Navbar = () => {
         open={drawerVisible}
         width={280}
         styles={{
-          body: { 
+          body: {
             padding: 0,
-            backgroundColor: token.secondary700 
+            backgroundColor: token.secondary700,
           },
           header: {
             backgroundColor: token.secondary700,
-            borderBottom: `1px solid ${token.secondary600}`
-          }
+            borderBottom: `1px solid ${token.secondary600}`,
+          },
         }}
       >
         <Menu
@@ -208,34 +212,36 @@ const Navbar = () => {
           selectedKeys={[pathname]}
           style={{
             backgroundColor: "transparent",
-            border: "none"
+            border: "none",
           }}
           theme="dark"
         />
-        
+
         {/* Mobile Login and Demo buttons */}
-        <div style={{ 
-          padding: "20px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "12px"
-        }}>
-          <Button 
-            type="text" 
+        <div
+          style={{
+            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "12px",
+          }}
+        >
+          <Button
+            type="text"
             onClick={() => {
               router.push("/login");
               setDrawerVisible(false);
             }}
-            style={{ 
+            style={{
               color: "#fff",
               textAlign: "left",
-              justifyContent: "flex-start"
+              justifyContent: "flex-start",
             }}
           >
             Login
           </Button>
-          <Button 
-            type="primary" 
+          <Button
+            type="primary"
             onClick={() => {
               router.push("/demo");
               setDrawerVisible(false);
