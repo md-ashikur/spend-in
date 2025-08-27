@@ -4,19 +4,9 @@ import "./globals.css";
 import ConfigProvider from "antd/es/config-provider";
 import theme from "../utilites/themeConfig";
 import Navbar from "../components/Navbar/Navbar";
-import { Layout } from "antd";
-import { Content } from "antd/es/layout/layout";
 import Footer from "@/components/Footer/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body >
         <ConfigProvider theme={theme}>
           <div style={{ background: "#0D121F" }}>
             <Navbar />
