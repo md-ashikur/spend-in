@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Flex, Row, theme, Typography } from "antd";
+import { Button, Card, Col, Flex, Row, theme, Typography } from "antd";
 import Image from "next/image";
 import register from "../../../public/images/Frame 33682.png";
 import business from "../../../public/images/Frame 33681.png";
@@ -27,39 +27,93 @@ export default function HowItWork() {
 
       <Flex justify="center">
         <Row gutter={80}>
-          <Col span={8}>
-            <Card
-              style={{ color: token.white, textAlign: "center" }}
+          {/* Step 1 - Register */}
+          <Col xs={24} sm={12} lg={8}>
+            <div style={{ position: "relative", textAlign: "center" }}>
+              {/* Number Circle */}
+              <div
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  backgroundColor: token.primary500,
+                  border: `6px solid ${token.secondary700}`,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "absolute",
+                  top: "-10px",
+                  left: "60px",
+                  transform: "translateX(-50%)",
+                  zIndex: 2,
+                  color: "white",
+                  fontSize: "24px",
+                  fontWeight: "bold",
+                  
+                }}
+              >
+                1
+              </div>
+
+              {/* Card with form-like content */}
+              <Card
+               style={{color:token.white, textAlign:"center"}}
               variant="borderless"
               cover={
-                <div
+                <Flex justify="center"
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
                     paddingTop: 16,
                   }}
                 >
                   <Image
                     src={register}
-                    alt="Register"
+                    alt="Business"
                     width={200}
                     height={200}
                   />
-                </div>
+                </Flex>
               }
             >
-              Register your Spend.In account.
+             Register your Spend.In account.
             </Card>
+            </div>
           </Col>
-          <Col span={8}>
-            <Card
-            style={{color:token.white, textAlign:"center"}}
+
+          {/* card 2---------- */}
+           <Col xs={24} sm={12} lg={8}>
+            <div style={{ position: "relative", textAlign: "center" }}>
+              {/* Number Circle */}
+              <div
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  backgroundColor: token.primary500,
+                  border: `6px solid ${token.secondary700}`,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "absolute",
+                  top: "-10px",
+                  left: "60px",
+                  transform: "translateX(-50%)",
+                  zIndex: 2,
+                  color: "white",
+                  fontSize: "24px",
+                  fontWeight: "bold",
+                  
+                }}
+              >
+                2
+              </div>
+
+              {/* Card with form-like content */}
+              <Card
+               style={{color:token.white, textAlign:"center"}}
               variant="borderless"
               cover={
-                <div
+                <Flex justify="center"
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
                     paddingTop: 16,
                   }}
                 >
@@ -69,32 +123,80 @@ export default function HowItWork() {
                     width={200}
                     height={200}
                   />
-                </div>
+                </Flex>
               }
             >
               Fill in the list of your business expenses.
             </Card>
+            </div>
           </Col>
-          <Col span={8}>
-            <Card
-              style={{ color: token.white, textAlign: "center" }}
+          
+          {/* card 3---------- */}
+            <Col xs={24} sm={12} lg={8}>
+            <div style={{ position: "relative", textAlign: "center" }}>
+              {/* Number Circle */}
+              <div
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  backgroundColor: token.primary500,
+                  border: `6px solid ${token.secondary700}`,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "absolute",
+                  top: "-10px",
+                  left: "60px",
+                  transform: "translateX(-50%)",
+                  zIndex: 2,
+                  color: "white",
+                  fontSize: "24px",
+                  fontWeight: "bold",
+                  
+                }}
+              >
+                3
+              </div>
+
+              {/* Card with form-like content */}
+              <Card
+               style={{color:token.white, textAlign:"center"}}
               variant="borderless"
               cover={
-                <div
+              <Flex justify="center"
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
                     paddingTop: 16,
                   }}
                 >
-                  <Image src={work} alt="Work" width={200} height={200} />
-                </div>
+                  <Image
+                    src={work}
+                    alt="work"
+                    width={200}
+                    height={200}
+                  />
+                </Flex>
               }
             >
-              Done, let’s continue the work.
+             Done, let’s continue the work.
             </Card>
+            </div>
           </Col>
         </Row>
+      </Flex>
+
+      
+      <Flex gap="middle" justify="center" style={{marginTop: "64px"}}>
+        <Button type="primary">Get a Free Demo</Button>
+        <Button
+          style={{
+            backgroundColor: token.secondary500,
+            border: "none",
+            color: "#fff",
+          }}
+        >
+          See Pricing
+        </Button>
       </Flex>
     </div>
   );
