@@ -145,7 +145,9 @@ const Navbar = () => {
               style={{
                 backgroundColor: "transparent",
                 border: "none",
+                color: token.white,
               }}
+              theme="dark"
             />
           </div>
         )}

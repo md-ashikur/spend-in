@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ConfigProvider from "antd/es/config-provider";
 import theme from "../utilites/themeConfig";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import GSAPProvider from '@/lib/gsap/GSAPProvider'
 
 
 
@@ -24,7 +24,9 @@ export default function RootLayout({
         <ConfigProvider theme={theme}>
           <div style={{ background: "#0D121F" }}>
             <Navbar />
-            {children}
+            <GSAPProvider>
+              {children}
+            </GSAPProvider>
             <Footer />
           </div>
         </ConfigProvider>

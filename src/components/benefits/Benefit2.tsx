@@ -18,26 +18,12 @@ export default function Benefit2() {
   const paddingTop = screens.lg ? "80px" : screens.md ? "80px" : "80px";
 
   return (
-    <div style={{ padding: `${paddingTop} ${paddingInline}`, backgroundColor: "#ffffff" }}>
+    <div  style={{ padding: `${paddingTop} ${paddingInline}`, backgroundColor: "#ffffff" }}>
       <Flex justify="center" align="center">
   <div style={{ textAlign: "center", maxWidth: screens.xs ? "100%" : "712px", paddingInline: screens.xs ? "8px" : 0 }}>
-          <Title
-            level={5}
-            style={{ color: token.primary500, fontSize: "20px", margin: 0 }}
-          >
-            WHY USE SPEND.IN
-          </Title>
-          <Title
-            level={2}
-            style={{ 
-              color: token.secondary900, 
-              fontSize: "clamp(24px, 5vw, 40px)", 
-              margin: 0 
-            }}
-          >
-            Easy, Simple, Affordable
-          </Title>
-          <Paragraph style={{ color: token.secondary400, fontSize: "20px" }}>
+          <Title level={5} className="gsap-reveal" style={{ color: token.primary500, fontSize: "20px", margin: 0 }}>WHY USE SPEND.IN</Title>
+          <Title level={2} className="gsap-reveal" style={{ color: token.secondary900, fontSize: "clamp(24px, 5vw, 40px)", margin: 0 }}>Easy, Simple, Affordable</Title>
+          <Paragraph className="gsap-reveal" style={{ color: token.secondary400, fontSize: "20px" }}>
             Our platform helps your business in managing expenses. These are
             some of the reasons why you should use our platform in managing
             business finances.
@@ -52,25 +38,38 @@ export default function Benefit2() {
             size="middle"
             style={{ display: "flex", paddingRight: screens.xs ? "0" : "40px" }}
           >
-            <Flex>
-              <Flex
-                justify="center"
-                align="center"
+            <Flex className="gsap-reveal">
+              <div
                 style={{
                   backgroundColor: token.primary500,
                   borderRadius: "12px",
                   height: "50px",
                   width: "50px",
+                  display: "grid",
+                  placeItems: "center",
+                  flexShrink: 0,
                 }}
               >
-                <Image
-                  src={icon1}
-                  alt="Benefit 1"
-                  width={24}
-                  height={24}
-                  style={{ margin: 0 }}
-                />
-              </Flex>
+                <div style={{
+                  width: "28px",
+                  height: "28px",
+                  display: "grid",
+                  placeItems: "center",
+                }}>
+                  <Image
+                    src={icon1}
+                    alt="Automatic Invoice Payment"
+                    width={28}
+                    height={28}
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "contain",
+                      objectPosition: "center"
+                    }}
+                  />
+                </div>
+              </div>
               <div style={{ color: token.secondary400, marginLeft: "24px" }}>
                 <Title level={3} style={{ margin: 0 }}>
                   Automatic Invoice Payment
@@ -83,26 +82,38 @@ export default function Benefit2() {
             </Flex>
 
             {/* row 2----------- */}
-            <Flex>
-              <Flex
-                justify="center"
-                align="center"
+            <Flex className="gsap-reveal">
+              <div
                 style={{
                   backgroundColor: token.primary500,
                   borderRadius: "12px",
                   height: "50px",
                   width: "50px",
-                  overflow: "hidden",
+                  display: "grid",
+                  placeItems: "center",
+                  flexShrink: 0,
                 }}
               >
-                <Image
-                  src={icon2}
-                  alt="Benefit 1"
-                  width={24}
-                  height={24}
-                  style={{ margin: 0 }}
-                />
-              </Flex>
+                <div style={{
+                  width: "28px",
+                  height: "28px",
+                  display: "grid",
+                  placeItems: "center",
+                }}>
+                  <Image
+                    src={icon2}
+                    alt="Clear payment history"
+                    width={28}
+                    height={28}
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "contain",
+                      objectPosition: "center"
+                    }}
+                  />
+                </div>
+              </div>
               <div style={{ color: token.secondary400, marginLeft: "24px" }}>
                 <Title level={3} style={{ margin: 0 }}>
                   Clear payment history
@@ -114,26 +125,38 @@ export default function Benefit2() {
             </Flex>
 
             {/* row 3------------- */}
-            <Flex>
-              <Flex
-                justify="center"
-                align="center"
+            <Flex className="gsap-reveal">
+              <div
                 style={{
                   backgroundColor: token.primary500,
                   borderRadius: "12px",
                   height: "50px",
                   width: "50px",
-                  overflow: "hidden",
+                  display: "grid",
+                  placeItems: "center",
+                  flexShrink: 0,
                 }}
               >
-                <Image
-                  src={icon3}
-                  alt="Benefit 1"
-                  width={24}
-                  height={24}
-                  style={{ margin: 0 }}
-                />
-              </Flex>
+                <div style={{
+                  width: "28px",
+                  height: "28px",
+                  display: "grid",
+                  placeItems: "center",
+                }}>
+                  <Image
+                    src={icon3}
+                    alt="Use of multi-card payments"
+                    width={28}
+                    height={28}
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "contain",
+                      objectPosition: "center"
+                    }}
+                  />
+                </div>
+              </div>
               <div style={{ color: token.secondary400, marginLeft: "24px" }}>
                 <Title level={3} style={{ margin: 0 }}>
                   Use of multi-card payments

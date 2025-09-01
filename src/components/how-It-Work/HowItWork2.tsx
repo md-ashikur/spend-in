@@ -9,7 +9,7 @@ export default function HowItWork2() {
   const screens = useBreakpoint();
   
   return (
-    <Flex justify="center" align="center">
+    <Flex justify="center" align="center" className="gsap-reveal">
       <Row 
         style={{ 
           padding: screens.xs 
@@ -22,7 +22,7 @@ export default function HowItWork2() {
         }} 
         gutter={screens.xs ? [16, 24] : screens.sm ? [24, 32] : [32, 32]}
       >
-        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+  <Col xs={24} sm={24} md={24} lg={12} xl={12}>
           <Flex justify="center" align="center" style={{ 
             padding: screens.xs ? "0 8px" : "0 16px"
           }}>
@@ -51,7 +51,7 @@ export default function HowItWork2() {
               : "0 20px"
           }}
         >
-          <Title level={4} style={{ 
+          <Title level={4} className="gsap-reveal" style={{ 
             color: token.primary500,
             fontSize: screens.xs ? "14px" : "16px",
             marginBottom: screens.xs ? "8px" : "16px"
@@ -60,6 +60,7 @@ export default function HowItWork2() {
           </Title>
           <Title
             level={2}
+            className="gsap-reveal"
             style={{
               color: token.white,
               fontSize: "clamp(20px, 5vw, 40px)",
@@ -70,6 +71,7 @@ export default function HowItWork2() {
             Few Easy Steps and Done
           </Title>
           <Paragraph
+            className="gsap-reveal"
             style={{
               color: token.secondary300,
               fontSize: "clamp(14px, 2.5vw, 18px)",
@@ -84,7 +86,7 @@ export default function HowItWork2() {
           {/* Steps List */}
           <div style={{ marginTop: screens.xs ? "24px" : "40px" }}>
             {/* Step 1 */}
-            <Flex align="center" style={{ marginBottom: screens.xs ? "16px" : "0" }}>
+            <Flex align="center" className="gsap-reveal" style={{ marginBottom: screens.xs ? "16px" : "0" }}>
               <div
                 style={{
                   width: screens.xs ? "40px" : "48px",
@@ -103,7 +105,7 @@ export default function HowItWork2() {
               >
                 1
               </div>
-              <Title level={5} style={{ 
+              <Title level={5} className="gsap-reveal" style={{ 
                 color: token.white, 
                 margin: 0,
                 fontSize: screens.xs ? "14px" : "16px",
@@ -125,7 +127,7 @@ export default function HowItWork2() {
             />
 
             {/* Step 2 */}
-            <Flex align="center" style={{ marginBottom: screens.xs ? "16px" : "0" }}>
+            <Flex align="center" className="gsap-reveal" style={{ marginBottom: screens.xs ? "16px" : "0" }}>
               <div
                 style={{
                   width: screens.xs ? "40px" : "48px",
@@ -144,7 +146,7 @@ export default function HowItWork2() {
               >
                 2
               </div>
-              <Title level={5} style={{ 
+              <Title level={5} className="gsap-reveal" style={{ 
                 color: token.white, 
                 margin: 0,
                 fontSize: screens.xs ? "14px" : "16px",
@@ -165,7 +167,7 @@ export default function HowItWork2() {
             />
 
             {/* Step 3 */}
-            <Flex align="center">
+            <Flex align="center" className="gsap-reveal">
               <div
                 style={{
                   width: screens.xs ? "40px" : "48px",
@@ -184,7 +186,7 @@ export default function HowItWork2() {
               >
                 3
               </div>
-              <Title level={5} style={{ 
+              <Title level={5} className="gsap-reveal" style={{ 
                 color: token.white, 
                 margin: 0,
                 fontSize: screens.xs ? "14px" : "16px",

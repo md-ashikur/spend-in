@@ -4,13 +4,15 @@ import Image from "next/image";
 import register from "../../../public/images/Frame 33682.png";
 import business from "../../../public/images/Frame 33681.png";
 import work from "../../../public/images/Frame 33683.png";
+import useGsapReveal from '@/lib/gsap/useGsapReveal'
 
 export default function HowItWork() {
   const { Title, Paragraph } = Typography;
   const { token } = theme.useToken();
+  useGsapReveal('.how-it-works .gsap-reveal')
 
   return (
-    <div style={{ padding: "120px 20px" }}>
+    <div className="how-it-works gsap-reveal" style={{ padding: "120px 20px" }}>
       <Flex vertical align="center" style={{ textAlign: "center" }}>
         <Title level={5} style={{ color: token.primary500 }}>
           HOW IT WORKS
@@ -36,7 +38,7 @@ export default function HowItWork() {
         <Row gutter={[32, 32]} justify="center">
           {/* Step 1 - Register */}
           <Col xs={24} sm={12} lg={8}>
-            <div style={{ position: "relative", textAlign: "center" }}>
+            <div className="gsap-reveal" style={{ position: "relative", textAlign: "center" }}>
               {/* Number Circle */}
               <div
                 style={{
@@ -64,6 +66,7 @@ export default function HowItWork() {
 
               {/* Card with form-like content */}
               <Card
+               className="gsap-reveal"
                style={{color:token.white, textAlign:"center"}}
               variant="borderless"
               cover={
@@ -87,8 +90,8 @@ export default function HowItWork() {
           </Col>
 
           {/* card 2---------- */}
-           <Col xs={24} sm={12} lg={8}>
-            <div style={{ position: "relative", textAlign: "center" }}>
+          <Col xs={24} sm={12} lg={8}>
+            <div className="gsap-reveal" style={{ position: "relative", textAlign: "center" }}>
               {/* Number Circle */}
               <div
                 style={{
@@ -116,6 +119,7 @@ export default function HowItWork() {
 
               {/* Card with form-like content */}
               <Card
+               className="gsap-reveal"
                style={{color:token.white, textAlign:"center"}}
               variant="borderless"
               cover={
@@ -140,7 +144,7 @@ export default function HowItWork() {
           
           {/* card 3---------- */}
             <Col xs={24} sm={12} lg={8}>
-            <div style={{ position: "relative", textAlign: "center" }}>
+            <div className="gsap-reveal" style={{ position: "relative", textAlign: "center" }}>
               {/* Number Circle */}
               <div
                 style={{
@@ -168,6 +172,7 @@ export default function HowItWork() {
 
               {/* Card with form-like content */}
               <Card
+               className="gsap-reveal"
                style={{color:token.white, textAlign:"center"}}
               variant="borderless"
               cover={

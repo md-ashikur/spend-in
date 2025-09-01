@@ -4,6 +4,7 @@ import React from 'react'
 import { theme, Typography, Card, Carousel, Grid, Button } from 'antd'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import testimonials from '@/data/testimonials.json'
+import useGsapReveal from '@/lib/gsap/useGsapReveal'
 
 export default function Testimonials() {
   const { token } = theme.useToken()
@@ -18,12 +19,14 @@ export default function Testimonials() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const carouselRef = React.useRef<any>(null)
 
+  useGsapReveal('.testimonials .gsap-reveal')
+
   return (
-    <div style={{ padding: '40px 0' }}>
+  <div className="testimonials" style={{ padding: '40px 0' }}>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
         <div style={{ maxWidth: 740, textAlign: 'center' }}>
-          <Title level={5} style={{ color: token.primary500 }}>WHAT THEY SAY</Title>
-          <Title level={2} style={{ color: token.white }}>Our User Kind Words</Title>
+      <Title level={5} className="gsap-reveal" style={{ color: token.primary500 }}>WHAT THEY SAY</Title>
+      <Title level={2} className="gsap-reveal" style={{ color: token.white }}>Our User Kind Words</Title>
           <Paragraph style={{ color: token.secondary300 }}>
             Here are some testimonials from our user after using Spend.In to manage their business expenses.
           </Paragraph>
@@ -42,10 +45,10 @@ export default function Testimonials() {
           slidesToScroll={1}
           infinite
         >
-          {(() => {
-            const gap = screens.lg ? 20 : screens.md ? 16 : 12
+              {(() => {
+            
             return testimonials.map((t: Testimonial, i: number) => (
-              <div key={i} style={{ padding: 0, display: 'flex', justifyContent: 'center' }}>
+              <div key={i} className="gsap-reveal" style={{ padding: 0, display: 'flex', justifyContent: 'center' }}>
                 <Card
                   style={{
                     width: '356px',

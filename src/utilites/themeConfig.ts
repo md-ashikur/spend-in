@@ -9,6 +9,9 @@ const theme: ThemeConfig = {
     colorWarning: "#f59e0b",
     colorError: "#ef4444",
 
+    // === Font configuration ===
+    fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif",
+
     // === primary palette ===
     primary50: "#eff6ff",
     primary100: "#E7DEFE",
